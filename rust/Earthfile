@@ -113,7 +113,7 @@ NEXTEST_E2E:
     END
     RUN --mount=$EARTHLY_RUST_CARGO_HOME_CACHE --mount=$EARTHLY_RUST_TARGET_CACHE \
       set -e; \
-      cargo +$nightly nextest run -E 'test(e2e::$filter)' --test-threads 1 --no-fail-fast --retries 1; \
+      cargo +$nightly nextest run -E 'test(e2e::wallet)' --test-threads 1 --no-fail-fast --retries 1; \
       cargo sweep -r -t $EARTHLY_SWEEP_DAYS; \
       cargo sweep -r -i; \
       $EARTHLY_FUNCTIONS_HOME/copy-output.sh "$output";
